@@ -2,7 +2,7 @@
 
 const Footer = () => (
   <div className="footer-div">
-    <div>系统由 React+Node+Ant Desgin驱动 </div>
+    <div>大学生内容分发</div>
     <div>
       <span><a href="https://huang-1234.github.io/BrowserCore/"></a></span>
     </div>

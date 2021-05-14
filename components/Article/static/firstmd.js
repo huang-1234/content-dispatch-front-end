@@ -1,4 +1,4 @@
-export const mdfile = '# P01:课程介绍和环境搭建\n' +
+export const firstmd = '# P01:课程介绍和环境搭建\n' +
   '[ **M** ] arkdown + E [ **ditor** ] = **Mditor**  \n' +
   '> Mditor 是一个简洁、易于集成、方便扩展、期望舒服的编写 markdown 的编辑器，仅此而已... \n\n' +
   '**这是加粗的文字**\n\n' +

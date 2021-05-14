@@ -1,5 +1,6 @@
+/* 
+
 import React, { useState } from 'react';
-import Head from 'next/head'
 import { Row, Col, List, Icon, Breadcrumb } from 'antd';
 
 import Header from '../Header/Header.js';
@@ -7,20 +8,15 @@ import Author from '../Author/Author';
 import Advert from '../Advert/Advert.js';
 import Footer from '../Footer/Footer';
 
-import ArticleDetail from '../Article/Article.js'
+import ArticleList from '../ArticleList/ArticleList.js'
 
-// mock data
-import { articleList } from './article-detail.js'
-
-
-function MainPage() {
-  const [mylist, setMylist] = useState(articleList);
+const MainPage = (props) => {
+  console.log(props);
+  const { data } = props.artListData;
+  console.log('list of MainPage:', data);
+  const [mylist, setMylist] = useState(data);
   return (
     <>
-      <Head>
-        <title>博客详细页</title>
-      </Head>
-
       <Header />
 
       <div>
@@ -30,12 +26,12 @@ function MainPage() {
               <div className="bread-div">
                 <Breadcrumb>
                   <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-                  <Breadcrumb.Item>视频列表</Breadcrumb.Item>
-                  <Breadcrumb.Item>xxxx</Breadcrumb.Item>
+                  <Breadcrumb.Item>文章列表</Breadcrumb.Item>
+                  <Breadcrumb.Item>文章详情</Breadcrumb.Item>
                 </Breadcrumb>
               </div>
             </div>
-
+            <ArticleList />
 
             <List
               header={<div>最新日志</div>}
@@ -45,13 +41,13 @@ function MainPage() {
                 <List.Item>
                   <div className="list-title">{item.title}</div>
                   <div className="list-icon">
-                    <span><Icon type="calendar" /> 2021-05-12</span>
-                    <span><Icon type="folder" /> content</span>
-                    <span><Icon type="fire" /> 10000人</span>
+                    <span><Icon type="calendar" />{item.addTime}</span>
+                    <span><Icon type="folder" /> {item.typeName}</span>
+                    <span><Icon type="fire" /> {item.view_count}人</span>
                   </div>
+                  <div className="list-context">{item.introduce}</div>
                   <div className="list-context">
-                    {/* {item.context} */}
-                    <ArticleDetail />
+                    {item.article_content}
                   </div>
                 </List.Item>
               )}
@@ -68,5 +64,6 @@ function MainPage() {
     </>
   )
 }
-
 export default MainPage
+
+ */

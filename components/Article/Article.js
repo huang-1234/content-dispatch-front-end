@@ -4,12 +4,14 @@ import React, { } from 'react';
 import { Affix } from 'antd';
 // import 'markdown-navbar/dist/navbar.css';
 
-import { mdfile} from './firstmd.js'
+// import { mdfile} from './firstmd.js'
+// import { secondmd as mdfile } from './second.js';
+import { thirdmd as mdfile } from './static/thirdmd.js';
 
 
 const ArticleDetail = () => {
   // const {mdfile} = require('./firstmd.js');
-  console.log(mdfile);
+  // console.log(mdfile);
   return (
     <div className="detailed-content" >
       <Affix
@@ -36,8 +38,8 @@ const ArticleDetail = () => {
       `}
       </style>
       <ReactMarkdown
-        // source={mdfile}
-        // escapeHtml={false}
+        source={mdfile}
+        escapeHtml={false}
       >
         {mdfile}
       </ReactMarkdown>
