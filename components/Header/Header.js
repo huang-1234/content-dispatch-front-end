@@ -1,39 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import { useState, useEffect } from 'react'
 import Head from 'next/head';
 import Router from 'next/router';
-import Link from 'next/link';
-import axios from 'axios';
+// import Link from 'next/link';
+// import axios from 'axios';
+// import servicePath from '../../config/apiUrl';
 
-// import '../static/style/components/header.css'
+// import './header.css'
 
-import { Row, Col, Menu, Icon } from 'antd'
-const HeaderDes = () => (
-  <div className="header">
-    <Row type="flex" justify="center">
-      <Col xs={24} sm={24} md={10} lg={10} xl={10}>
-        <span className="header-logo">University</span>
-        <span className="header-txt">article</span>
-      </Col>
+import { Row, Col, Menu, Icon } from 'antd';
 
-      <Col className="memu-div" xs={0} sm={0} md={14} lg={8} xl={6}>
-        <Menu mode="horizontal">
-          <Menu.Item key="home">
-            <Icon type="home" />
-            First
-          </Menu.Item>
-          <Menu.Item key="video">
-            <Icon type="youtube" />
-            recommend
-          </Menu.Item>
-          <Menu.Item key="life">
-            <Icon type="smile" />
-            Industry
-          </Menu.Item>
-        </Menu>
-      </Col>
-    </Row>
-  </div>
-)
+const HeaderDes = () => {
+/* 
+  const [navArray, setNavArray] = useState([]);
+  useEffect(() => {
+    const getTypeUrl = servicePath.getTypeInfo;
+    const fetchData = async () => {
+      const result = await axios(getTypeUrl)
+        .then((res) => {
+          console.log(res.data);
+          setNavArray(res.data.data);
+          return res.data.data;
+        })
+      setNavArray(result)
+    }
+    fetchData();
+  }, []);
+  //首页标签节点s
+  const navArrayNodes = navArray.map((item) => {
+    return (
+      <Menu.Item key={item.id}>
+        <Icon type={item.icon} />
+        {item.typeName}
+      </Menu.Item>
+    )
+  })
+  //跳转到列表页
+   */
+  const handleClick = (e) => {
+    if (e.key == 0) {
+      Router.push('/index')
+    } else {
+      Router.push('/list?id=' + e.key)
+    }
+  }
+
+  return (
+    <div className="header">
+      <Row type="flex" justify="center">
+        <Col xs={24} sm={24} md={10} lg={10} xl={10}>
+          <span className="header-logo">University</span>
+          <span className="header-txt">article</span>
+        </Col>
+
+        <Col className="memu-div" xs={0} sm={0} md={14} lg={8} xl={6}>
+          <Menu mode="horizontal"
+            onClick={handleClick}
+          >
+            <Menu.Item key="0">
+              <Icon type="home" />
+              First
+            </Menu.Item>
+            <Menu.Item key="video">
+              <Icon type="youtube" />
+              recommend
+            </Menu.Item>
+            <Menu.Item key="life">
+              <Icon type="smile" />
+              Industry
+            </Menu.Item>
+          </Menu>
+        </Col>
+      </Row>
+    </div>
+  )
+}
 const Header = () => {
   return (
     <Head>

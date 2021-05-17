@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import Link from 'next/link';
 
 import axios  from 'axios';
@@ -11,11 +11,13 @@ import Header from '../../components/Header/Header.js';
 import Author from '../../components/Author/Author';
 import Advert from '../../components/Advert/Advert.js';
 import Footer from '../../components/Footer/Footer';
-
-
 import ArticleList from '../../components/ArticleList/ArticleList.js'
 
 import servicePath from '../../config/apiUrl'
+// 这些都是解析Markdown必须的模块和CSS样式。
+import marked from 'marked'
+import hljs from "highlight.js";
+import 'highlight.js/styles/monokai-sublime.css';
 
 
 
@@ -23,7 +25,28 @@ export default function MainPage({ artListData }){
   // console.log(props);
   const { data } = artListData;
   // console.log('list of MainPage:', data);
-  const [mylist, setMylist] = useState(data);
+  const [artiList, setArtiList] = useState(data);
+  console.log(artiList);
+
+  // 之后可以对marked进行setOptions设置，代码如下：
+  const renderer = new marked.Renderer();
+  marked.setOptions({
+    renderer: renderer,
+    gfm: true,
+    pedantic: false,
+    sanitize: false,
+    tables: true,
+    breaks: false,
+    smartLists: true,
+    smartypants: false,
+    sanitize: false,
+    xhtml: false,
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
+
+  });
+
   return (
     <>
       <Header />
@@ -43,7 +66,7 @@ export default function MainPage({ artListData }){
             <List
               header={<div>最新日志</div>}
               itemLayout="vertical"
-              dataSource={mylist}
+              dataSource={artiList}
               renderItem={item => (
                 <List.Item>
                   <div className="list-title">
@@ -56,9 +79,13 @@ export default function MainPage({ artListData }){
                     <span><Icon type={<FolderOpenOutlined />} /> {item.typeName}</span>
                     <span><Icon type={<FireOutlined />} /> {item.view_count}人</span>
                   </div>
-                  <div className="list-context">{item.introduce}</div>
-                  <div className="list-context">
-                    {item.article_content}
+                  <div className="list-context"
+                    dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}
+                  >
+                  </div>
+                  <div className="list-context"
+                    dangerouslySetInnerHTML={{ __html: marked(item.article_content) }}
+                  >
                     {/* <ArticleDetail /> */}
                   </div>
                 </List.Item>
@@ -91,6 +118,7 @@ export const getStaticProps = async () => {
       })
   });
   const artListData = await promise;
+  
   return {
     props: {
       artListData

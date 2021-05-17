@@ -1,7 +1,9 @@
 import '../styles/globals.css'
 import 'antd/dist/antd.css';
-import '../static/style/components/header.css'
+import '../components/Header/header.css';
 import '../static/style/pages/comm.css';
+
+import '../static/style/pages/articles/index.css';
 import '../static/style/pages/articles/mainpage.css';
 
 import '../components/Advert/advert.css';
