@@ -23,6 +23,8 @@ export const getServerSideProps = async (context) => {
     )
   })
   const list = await promise;
-  console.log(list);
+  const out1 = list[0].articleId;
+  const out2 = list[0].title;
+  console.log('pages/articlelist---:id and title',out1,out2);
   return { props: { list } }
 }

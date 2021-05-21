@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import 'antd/dist/antd.css';
-import '../components/Header/header.css';
+// import '../components/Header/header.css';
 import '../static/style/pages/comm.css';
 
 import '../static/style/pages/articles/index.css';

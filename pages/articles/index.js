@@ -11,7 +11,7 @@ import Header from '../../components/Header/Header.js';
 import Author from '../../components/Author/Author';
 import Advert from '../../components/Advert/Advert.js';
 import Footer from '../../components/Footer/Footer';
-import ArticleList from '../../components/ArticleList/ArticleList.js'
+import GetArticleList from '../../components/ArticleList/index'
 
 import servicePath from '../../config/apiUrl'
 // 这些都是解析Markdown必须的模块和CSS样式。
@@ -26,7 +26,8 @@ export default function MainPage({ artListData }){
   const { data } = artListData;
   // console.log('list of MainPage:', data);
   const [artiList, setArtiList] = useState(data);
-  console.log(artiList);
+  const [item1, item2] = artiList;
+   console.log('pages/raticles/MainPage/artiList---:', item1.articleId, item1.title, item2.articleId, item2.title);
 
   // 之后可以对marked进行setOptions设置，代码如下：
   const renderer = new marked.Renderer();
@@ -55,16 +56,16 @@ export default function MainPage({ artListData }){
         <Row className="comm-main" type="flex" justify="center">
           <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
               <div className="bread-div">
-                <Breadcrumb>
+                {/* <Breadcrumb>
                   <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
                   <Breadcrumb.Item>文章列表</Breadcrumb.Item>
                   <Breadcrumb.Item>文章详情</Breadcrumb.Item>
-                </Breadcrumb>
+                </Breadcrumb> */}
               </div>
-            <ArticleList />
+            <GetArticleList ArticleList={artiList }/>
 
             <List
-              header={<div>最新日志</div>}
+              header={<div>new Article</div>}
               itemLayout="vertical"
               dataSource={artiList}
               renderItem={item => (
@@ -94,8 +95,8 @@ export default function MainPage({ artListData }){
           </Col>
 
           <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-            <Author />
-            <Advert />
+            {/* <Author /> */}
+            {/* <Advert /> */}
           </Col>
         </Row>
         <Footer />
@@ -112,7 +113,7 @@ export const getStaticProps = async () => {
   const promise = new Promise((resolve) => {
     axios(artListUrl)
       .then((res) => {
-        // console.log('远程获取数据结果:', res.data);
+         // console.log('远程获取数据结果:', res.data);
         // resolve(res.data.data);
         resolve(res.data);
       })

@@ -1,38 +1,21 @@
 
 
-import { Avatar, Divider, Tooltip  } from "antd";
-import { UserOutlined, AntDesignOutlined, WechatOutlined, LoadingOutlined, } from '@ant-design/icons';
-// import { github, qq, wechat} from 'antd/dist/'
-
+import {
+  Avatar,
+  // Divider, Tooltip
+} from "antd";
+// import Relation from './Relation.jsx'
+// import ImgMe from './static/img/me.jpg';
+// import ImgMe from 'https://huang-1234.github.io/me.jpg';
 const Author = () => {
   return (
     <>
       <div className="author-div comm-box">
-        <span>About Author</span>
+        <span>Author</span>
         <div>
-          <Avatar size={100} src="https://huang-1234.github.io/images/Tools/Git/git-command.png" target="_blank"/>
+          <Avatar size={100} src="https://huang-1234.github.io/me.jpg" target="_blank"/>
         </div>
-        
-        <div className="author-introduction">
-          <Divider>Detail</Divider>
-          <Avatar size={28} icon={<AntDesignOutlined />} className="account"
-            style={{
-              backgroundColor: '#1890ff',
-            }}
-          />
-          <Avatar size={38} icon={<UserOutlined />} className="account"
-            style={{
-              backgroundColor: '#f56a00',
-            }}
-          >HSQ</Avatar>
-          <Tooltip title="Ant User" placement="top">
-            <Avatar style={{backgroundColor: '#3c3',}}
-              icon={<UserOutlined />}
-            />
-          </Tooltip>
-          <Avatar size={28} icon={<WechatOutlined />} className="account" style={{backgroundColor: '#87d068',}}/>
-          <Avatar size={28} icon={<LoadingOutlined />} className="account" style={{ backgroundColor: '#868', }} />
-        </div>
+        {/* <Relation /> */}
       </div>
     </>
   )
