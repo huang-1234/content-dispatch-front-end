@@ -7,7 +7,7 @@ import GetArticleList from '../../components/ArticleList/index';
 const articlelist = ({list}) => {
   return (
     <div>articleList
-      {/* <GetArticleList list={list}/> */}
+      <GetArticleList list={list}/>
     </div>
   );
 }

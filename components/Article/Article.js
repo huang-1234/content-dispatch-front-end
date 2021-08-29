@@ -6,6 +6,7 @@ import { Affix } from 'antd';
 
 // import { mdfile} from './firstmd.js'
 // import { secondmd as mdfile } from './second.js';
+// import { thirdmd as mdfile } from './static/thirdmd.md';
 import { thirdmd as mdfile } from './static/thirdmd.js';
 
 
@@ -14,29 +15,18 @@ const ArticleDetail = () => {
   // console.log(mdfile);
   return (
     <div className="detailed-content" >
-      <Affix
-        offsetTop={5} id="affix"
-      >
+      <Affix offsetTop={5} id="affix" >
+
+      </Affix>
         <div className="detailed-nav comm-box">
           <div className="nav-title">文章目录</div>
           <MarkNav
             className="article-menu"
             source={mdfile}
 
-            ordered={false}
+            ordered={true}
           />
         </div>
-      </Affix>
-      <style jsx>
-        {`
-          #affix{
-            position:'absolute',
-            width: 'fit-content',
-            left:'2rem';
-            height:'10rem';
-          }
-      `}
-      </style>
       <ReactMarkdown
         source={mdfile}
         escapeHtml={false}

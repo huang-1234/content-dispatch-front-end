@@ -115,7 +115,7 @@ Detailed.getInitialProps = async (context) => {
     // const getArt_byid_url = `http://127.0.0.1:7001/default/getArticleList`
     axios(getArt_byid_url + id).then(
       (res) => {
-        // console.log(title)
+        console.log('articles/detailed/page')
         const data_one = res.data.data[0];
         console.log(data_one.title);
         // console.log(data_one);

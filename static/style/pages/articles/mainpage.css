@@ -1,10 +1,14 @@
 .list-title{
-    font-size:1.3rem;
-    color: #1e90ff;
+    font-size:2rem;
+    color: #18df54;
     padding: 0 0.5rem;
 }
-.list-context{
-    color:#777;
+.posts_introduce{
+    color:#57a2af;
+    padding:.5rem;
+}
+.posts_content{
+    color:#000000;
     padding:.5rem;
 }
 .list-icon{

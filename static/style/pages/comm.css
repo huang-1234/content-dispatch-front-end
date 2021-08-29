@@ -1,5 +1,5 @@
 body{
-  background-color: #f6f6f6;  
+  background-color: #abdfa9;  
 }
 .comm-left{
   background-color: #FFF;
@@ -8,7 +8,7 @@ body{
   border:1px solid #eee;
 }
 .comm-box{
-  background-color: #FFF;
+  background-color: #45ac9a;
   margin-left: .5rem;
   padding:.3rem;
   border-radius: .3rem;
@@ -19,7 +19,7 @@ body{
 }
 .list-title{
   font-size:1.3rem;
-  color: #1e90ff;
+  color: green;
   padding: 0 0.5rem;
 }
 .list-context{

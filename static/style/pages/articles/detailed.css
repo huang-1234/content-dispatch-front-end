@@ -59,12 +59,12 @@ code {
     white-space: nowrap;
 }
 .active{
-    color:rgb(30, 144, 255) !important;
+    color:rgb(255, 94, 30) !important;
 }
 .nav-title{
     text-align: center;
     color: #888;
-    border-bottom: 1px solid rgb(30, 144, 255);
+    border-bottom: 1px solid rgb(87, 122, 156);
 
 }
 .article-menu{

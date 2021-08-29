@@ -12,6 +12,7 @@ import Author from '../../components/Author/Author';
 import Advert from '../../components/Advert/Advert.js';
 import Footer from '../../components/Footer/Footer';
 import GetArticleList from '../../components/ArticleList/index'
+import ArticleDetail from '../../components/Article/Article.js'
 
 import servicePath from '../../config/apiUrl'
 // 这些都是解析Markdown必须的模块和CSS样式。
@@ -45,7 +46,6 @@ export default function MainPage({ artListData }){
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
     }
-
   });
 
   return (
@@ -80,22 +80,22 @@ export default function MainPage({ artListData }){
                     <span><Icon type={<FolderOpenOutlined />} /> {item.typeName}</span>
                     <span><Icon type={<FireOutlined />} /> {item.view_count}人</span>
                   </div>
-                  <div className="list-context"
+                  <div className="posts_introduce"
                     dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}
                   >
                   </div>
-                  <div className="list-context"
+                  <div className="posts_content"
                     dangerouslySetInnerHTML={{ __html: marked(item.article_content) }}
                   >
-                    {/* <ArticleDetail /> */}
                   </div>
+                  <ArticleDetail />
                 </List.Item>
               )}
             />
           </Col>
 
           <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-            {/* <Author /> */}
+            <Author />
             {/* <Advert /> */}
           </Col>
         </Row>
